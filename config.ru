@@ -1,3 +1,3 @@
-require "./sprawl"
+require "./app"
 
 run Cuba
