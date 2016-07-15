@@ -7,7 +7,7 @@ describe "Cuba" do
       payload = {
         message: message
       }
-      expect(BroadcastWorker).to receive(:process)
+      expect(Broadcast).to receive(:process)
         .with(Notification.new(source: "example.org", message: message))
       post "/notification", payload: payload
       expect(last_response.body).to eq "message received"

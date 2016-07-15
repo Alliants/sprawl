@@ -1,4 +1,6 @@
 class BroadcastWorker
-  def self.process(_notification)
+  include Sidekiq::Worker
+
+  def perform(source:, message:)
   end
 end

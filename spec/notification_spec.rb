@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe Notification do
-  describe "==" do
+  describe "#==" do
     it "confirms 2 objects are the same" do
       notification1 = Notification.new(source: "1", message: "1")
       notification2 = Notification.new(source: "1", message: "1")
