@@ -30,6 +30,7 @@ set :shared_paths, ['config/subscribers.production.yml', 'log', 'tmp/pids', 'tmp
 # This task is the environment that is loaded for most commands, such as
 # `mina deploy` or `mina rake`.
 task :environment do
+  invoke :'rbenv:load'
 end
 
 # Put any custom mkdir's in here for when `mina setup` is ran.
@@ -78,4 +79,8 @@ task :deploy => :environment do
       invoke :'puma:start'
     end
   end
+end
+
+task :start_sidekiq => :environment do
+  queue! "cd #{deploy_to}/current ; sidekiq -r ./lib/broadcast_worker.rb -L /var/www/sprawl/shared/log/sidekiq.log -d -e production"
 end
