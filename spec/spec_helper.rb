@@ -1,5 +1,6 @@
 Bundler.require(:default, :development, :test)
 require "./app"
+require "webmock/rspec"
 
 module RSpecMixin
   include Rack::Test::Methods
@@ -7,6 +8,8 @@ module RSpecMixin
     Cuba
   end
 end
+
+ENV["RACK_ENV"] = "test"
 
 RSpec.configure do |config|
   config.include RSpecMixin
