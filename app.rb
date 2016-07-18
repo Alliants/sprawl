@@ -11,6 +11,12 @@ Cuba.use Rack::Session::Cookie, secret: "__a_very_long_string__"
 Cuba.plugin Cuba::Safe
 
 Cuba.define do
+  on get do
+    on "health" do
+      res.write({status: "ok"}.to_json)
+    end
+  end
+
   on post do
     on "notification" do
       on param("payload") do |payload|
