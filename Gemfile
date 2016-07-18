@@ -14,6 +14,7 @@ end
 
 group :development do
   gem "rubocop"
+  gem "foreman"
 end
 
 group :test do

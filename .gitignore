@@ -1,3 +1,4 @@
 .rspec
 .byebug_history
 config/subscribers.development.yml
+dump.rdb
